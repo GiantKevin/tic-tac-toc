@@ -93,6 +93,7 @@ def alpha_beta_pruning(state, depth, player, alpha, beta):
         x, y = cell[0], cell[1]
         state[x][y] = player
         score = alpha_beta_pruning(state, depth - 1, -player, alpha, beta)
+        # The move (+1 or -1) on the board is undo and the row, column are collected.
         state[x][y] = 0
         score[0], score[1] = x, y
 
@@ -111,6 +112,7 @@ def alpha_beta_pruning(state, depth, player, alpha, beta):
 
 
 """
+# Define the minimax function
 def minimax(state, depth, player):
     if player == COMP:
         best = [-1, -1, -infinity]
